@@ -1,0 +1,98 @@
+<div class="music-discover">
+  <ul class="music-discover-tab-menu">
+    <li class="active">个性推荐</li>
+    <li>歌单</li>
+    <li>主播电台</li>
+    <li>排行榜</li>
+    <li>歌手</li>
+    <li>最新音乐</li>
+  </ul>
+  <div class="personality-recommendation">
+    <div class="personality-recommendation-ads"
+     (mouseenter)="onMouseenter()"
+     (mouseleave)="onMouseleave()"
+    >
+      <ul class="ads-pic">
+        <li
+          *ngFor="let ad of adList; let i = index"
+          [class.active]="isActive(i)"
+          [class.prev]="isPrev(i)"
+          [class.next]="isNext(i)"
+        >
+          <img [src]="ad.imageUrl" alt="">
+        </li>
+      </ul>
+      <ul class="ads-dot"><li *ngFor="let ad of adList; let i = index" (mouseenter)="setCurrentIndex(i)"></li></ul>
+      <span class="prev-btn" (click)="prev()"></span>
+      <span class="next-btn" (click)="next()"></span>
+    </div>
+    <div class="personality-recommendation-personalized">
+      <h3>推荐歌单</h3>
+      <ul>
+        <li (click)="getRecommendSongs()">
+          <p><b>{{date}}</b></p>
+          <div>每日歌曲推荐</div>
+        </li>
+        <li *ngFor="let sheet of personalized; let i = index">
+          <img [src]="sheet.picUrl" alt="">
+          <div>{{sheet.name}}</div>
+        </li>
+      </ul>
+    </div>
+    <div class="personality-recommendation-personalized">
+      <h3>每日歌曲推荐</h3>
+      <ul>
+        <li *ngFor="let sheet of recommendSongs; let i = index">
+          <div>{{sheet.name}}</div>
+        </li>
+      </ul>
+    </div>
+    <div class="personality-recommendation-personalized">
+      <h3>独家放送</h3>
+      <ul>
+        <li *ngFor="let sheet of personalizedPrivatecontent; let i = index">
+          <img [src]="sheet.picUrl" alt="">
+          <div>{{sheet.name}}</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="personality-recommendation-personalized">
+      <h3>最新音乐</h3>
+      <ul>
+        <li *ngFor="let sheet of personalizedNewsong; let i = index">
+          <div>{{sheet.name}}</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="personality-recommendation-personalized">
+      <h3>推荐MV</h3>
+      <ul>
+        <li *ngFor="let sheet of personalizedMv; let i = index">
+          <img [src]="sheet.picUrl" alt="">
+          <div>{{sheet.name}}</div>
+        </li>
+      </ul>
+    </div>
+    <div class="personality-recommendation-personalized">
+      <h3>主播电台</h3>
+      <ul>
+        <li *ngFor="let sheet of personalizedDjprogram; let i = index">
+          <img [src]="sheet.picUrl" alt="">
+          <div>{{sheet.name}}</div>
+        </li>
+      </ul>
+    </div>
+    <div class="personality-recommendation-personalized">
+      <h3>推荐节目</h3>
+      <ul>
+        <li *ngFor="let sheet of programRecommend; let i = index">
+          <img [src]="sheet.coverUrl" alt="">
+          <div>{{sheet.name}}</div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

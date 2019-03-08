@@ -1,0 +1,50 @@
+
+.music-wrap{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+}
+.music-wrap{
+  display: flex;
+  flex-direction: column;
+}
+.music-top{
+  flex: 0 0 40px;
+}
+.music-content{
+  flex: 1 1 0;
+  display: flex;
+}
+.music-mid-slide{
+  overflow-y: scroll;
+   flex: 0 0 200px;
+  box-shadow: 2px 0 2px rgba(0,0,0,.05);
+ }
+.music-mid-content::-webkit-scrollbar,
+.music-mid-slide::-webkit-scrollbar{
+  display: none;
+}
+.music-mid-content{
+  flex: 1 1 0;
+  overflow-y: scroll;
+}
+.music-bottom{
+  flex: 0 0 41px;
+  border-top: 1px solid #eee;
+}
+app-music-top{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: #C20C0C;
+  color: #fff;
+}
+app-music-slide{
+  height: 100%;
+  width: 100%;
+}

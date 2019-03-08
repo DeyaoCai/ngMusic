@@ -1,0 +1,117 @@
+.music-discover-tab-menu{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+}
+.music-discover-tab-menu li{
+  padding: 10px;
+  font-size: 14px;
+  user-select: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.music-discover-tab-menu li:hover{
+  color: #C20C0C;
+}
+.music-discover-tab-menu li.active{
+  border-bottom: 2px solid #C20C0C;
+}
+.personality-recommendation-ads{
+  position: relative;
+  padding-top: 10px;
+}
+.ads-pic{
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.ads-pic>li{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  opacity: .5;
+  transform: scale(.9, .9) translateX(0);
+  transition: all .3s;
+}
+.ads-pic>li.active{
+  opacity: 1;
+  z-index: 3;
+  transform: scale(1, 1) translateX(0);
+}
+.ads-pic>li.prev{
+  transform: scale(.9, .9) translateX(-10%);
+}
+.ads-pic>li.next{
+  transform: scale(.9, .9) translateX(10%);
+}
+.ads-pic>li img{
+  height: 100%;
+}
+.ads-dot{
+  display: flex;
+  justify-content: center;
+}
+.ads-dot li{
+  flex: 0 0 auto;
+  width: 20px;
+  height: 6px;
+  margin: 20px 4px;
+  background-color: #C20C0C;
+  cursor: pointer;
+}
+.ads-dot li:hover{
+  background-color: #a40011;
+}
+.prev-btn,
+.next-btn{
+  top: 0;
+  display: block;
+  width: 20px;
+  height: 100%;
+  position: absolute;
+  background-color: #C20C0C;
+  z-index: 3;
+  cursor: pointer;
+}
+.prev-btn{
+  left: 0;
+}
+.next-btn{
+  right: 0;
+}
+h3{
+  line-height: 30px;
+  padding:  0 10px;
+}
+.personality-recommendation-personalized ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.personality-recommendation-personalized ul li:first-child{
+  display: flex;
+  flex-direction: column;
+}
+.personality-recommendation-personalized ul p{
+  flex: 1 1 0;
+  position: relative;
+}
+.personality-recommendation-personalized ul p b{
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.personality-recommendation-personalized ul li{
+  flex: 0 0 20%;
+  padding: 10px;
+}
+.personality-recommendation-personalized ul li img{
+  width: 100%;
+}
