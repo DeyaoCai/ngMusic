@@ -1,0 +1,15 @@
+audio{
+  display: none;
+}
+.bottom-play-btns>span{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+.bottom-play-btns>span:hover{
+  background-color: #f8f8f8;
+}

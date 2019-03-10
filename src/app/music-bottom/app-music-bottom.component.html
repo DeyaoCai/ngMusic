@@ -1,0 +1,14 @@
+<audio [src]="playingSongListService.playingUrl" autoplay></audio>
+<div class="bottom-play-btns">
+  <span (click)="playingSongListService.playPrevSong()"> < </span>
+  <span>o</span>
+  <span (click)="playingSongListService.playNextSong()"> > </span>
+</div>
+<div class="bottom-progressbar">
+  <span>10:30</span>
+  <div class="bottom-progress-bar">
+    <span></span>
+    <span></span>
+  </div>
+  <span></span>
+</div>

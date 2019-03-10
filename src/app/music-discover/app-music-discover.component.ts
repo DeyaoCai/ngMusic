@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PlayingSongListService } from '../playingSongList.service';
 import ajax from '../../http/http.js';
 
 @Component({
@@ -20,10 +20,15 @@ export class AppMusicDiscoverComponent implements OnInit {
   recommendSongs = [];
   currentIndex = 1;
   isHovering = false;
-  constructor() {
+  playingSongListService: PlayingSongListService;
+  constructor(playingSongListService: PlayingSongListService) {
+    this.playingSongListService = playingSongListService;
   };
   setCurrentIndex(index) {
     this.currentIndex = index;
+  };
+  getUrl(id) {
+    this.playingSongListService.getSongUrl(id);
   };
   prev() {
     this.currentIndex = (this.currentIndex + this.adList.length - 1) % this.adList.length;
@@ -53,8 +58,9 @@ export class AppMusicDiscoverComponent implements OnInit {
   };
   getRecommendSongs(){
     ajax.recommendSongs({})(res => {
-      console.log(res);
       this.recommendSongs = res.recommend;
+      this.playingSongListService.setPlayList(res.recommend);
+      this.playingSongListService.getSongUrl([res.recommend[0].id]);
     });
   };
   ngOnInit() {
@@ -74,6 +80,8 @@ export class AppMusicDiscoverComponent implements OnInit {
     });
     ajax.personalizedNewsong({})(res => {
       this.personalizedNewsong = res.result;
+      this.playingSongListService.setPlayList(res.result);
+      this.playingSongListService.getSongUrl([res.result[0].id]);
     });
     ajax.personalizedMv({})(res => {
       this.personalizedMv = res.result;

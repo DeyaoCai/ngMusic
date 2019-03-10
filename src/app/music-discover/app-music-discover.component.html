@@ -42,7 +42,7 @@
     <div class="personality-recommendation-personalized">
       <h3>每日歌曲推荐</h3>
       <ul>
-        <li *ngFor="let sheet of recommendSongs; let i = index">
+        <li *ngFor="let sheet of recommendSongs; let i = index"  (click)="getUrl(sheet.id)">
           <div>{{sheet.name}}</div>
         </li>
       </ul>
@@ -60,7 +60,7 @@
     <div class="personality-recommendation-personalized">
       <h3>最新音乐</h3>
       <ul>
-        <li *ngFor="let sheet of personalizedNewsong; let i = index">
+        <li *ngFor="let sheet of personalizedNewsong; let i = index" (click)="getUrl(sheet.id)">
           <div>{{sheet.name}}</div>
         </li>
       </ul>
