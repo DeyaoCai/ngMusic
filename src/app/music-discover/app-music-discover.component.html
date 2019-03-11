@@ -33,21 +33,38 @@
           <p><b>{{date}}</b></p>
           <div>每日歌曲推荐</div>
         </li>
-        <li *ngFor="let sheet of personalized; let i = index">
+        <li *ngFor="let sheet of personalized; let i = index" (click)="getSheetList(sheet.id)">
           <img [src]="sheet.picUrl" alt="">
           <div>{{sheet.name}}</div>
         </li>
       </ul>
     </div>
-    <div class="personality-recommendation-personalized">
-      <h3>每日歌曲推荐</h3>
+
+    <div class="personality-recommendation-recommendSongs" *ngIf="sheetSongList && sheetSongList.length">
+      <h3>歌单歌曲列表</h3>
       <ul>
-        <li *ngFor="let sheet of recommendSongs; let i = index"  (click)="getUrl(sheet.id)">
+        <li *ngFor="let sheet of sheetSongList; let i = index"  (click)="getUrl(sheet.id, recommendSongs)">
+          <div>{{to00(i + 1)}}</div>
           <div>{{sheet.name}}</div>
+          <div>{{getSongArtistsName(sheet)}}</div>
+          <div>{{sheet.al.name}}</div>
+          <div>{{parseSecondToMinutes(sheet.dt)}}</div>
         </li>
       </ul>
     </div>
-    <div class="personality-recommendation-personalized">
+    <div class="personality-recommendation-recommendSongs" *ngIf="recommendSongs && recommendSongs.length">
+      <h3>每日歌曲推荐</h3>
+      <ul>
+        <li *ngFor="let sheet of recommendSongs; let i = index"  (click)="getUrl(sheet.id, recommendSongs)">
+          <div>{{to00(i + 1)}}</div>
+          <div>{{sheet.name}}</div>
+          <div>{{getSongArtistsName(sheet)}}</div>
+          <div>{{sheet.album.name}}</div>
+          <div>{{parseSecondToMinutes(sheet.duration)}}</div>
+        </li>
+      </ul>
+    </div>
+    <div class="personalized-privatecontent">
       <h3>独家放送</h3>
       <ul>
         <li *ngFor="let sheet of personalizedPrivatecontent; let i = index">
@@ -57,16 +74,20 @@
       </ul>
     </div>
 
-    <div class="personality-recommendation-personalized">
+    <div class="personality-recommendation-recommendSongs">
       <h3>最新音乐</h3>
       <ul>
-        <li *ngFor="let sheet of personalizedNewsong; let i = index" (click)="getUrl(sheet.id)">
+        <li *ngFor="let sheet of personalizedNewsong; let i = index" (click)="getUrl(sheet.id, personalizedNewsong)">
+          <div>{{to00(i + 1)}}</div>
           <div>{{sheet.name}}</div>
+          <!--<div>{{getSongArtistsName(sheet)}}</div>-->
+          <!--<div>{{sheet.album.name}}</div>-->
+          <div>{{parseSecondToMinutes(sheet.duration)}}</div>
         </li>
       </ul>
     </div>
 
-    <div class="personality-recommendation-personalized">
+    <div class="personalized-mv">
       <h3>推荐MV</h3>
       <ul>
         <li *ngFor="let sheet of personalizedMv; let i = index">
@@ -93,6 +114,5 @@
         </li>
       </ul>
     </div>
-
   </div>
 </div>

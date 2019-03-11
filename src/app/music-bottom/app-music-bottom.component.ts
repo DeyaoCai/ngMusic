@@ -9,6 +9,5 @@ export class AppMusicBottomComponent {
   playingSongListService: PlayingSongListService;
   constructor(playingSongListService: PlayingSongListService) {
     this.playingSongListService = playingSongListService;
-    console.log(playingSongListService);
   }
 }

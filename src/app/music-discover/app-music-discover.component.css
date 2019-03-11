@@ -88,6 +88,8 @@ h3{
   line-height: 30px;
   padding:  0 10px;
 }
+.personalized-mv ul,
+.personalized-privatecontent ul,
 .personality-recommendation-personalized ul{
   display: flex;
   flex-wrap: wrap;
@@ -108,10 +110,42 @@ h3{
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.personalized-mv ul li,
+.personalized-privatecontent ul li,
 .personality-recommendation-personalized ul li{
-  flex: 0 0 20%;
   padding: 10px;
 }
+.personality-recommendation-personalized ul li{
+  flex: 0 0 20%;
+}
+.personalized-mv ul li img,
+.personalized-privatecontent ul li img,
 .personality-recommendation-personalized ul li img{
   width: 100%;
+}
+
+.personality-recommendation-recommendSongs{
+
+}
+.personality-recommendation-recommendSongs ul li{
+  cursor: pointer;
+  display: flex;
+}
+.personalized-mv ul li div,
+.personalized-privatecontent ul li div,
+.personality-recommendation-recommendSongs ul li div{
+  padding: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 36px;
+}
+.personality-recommendation-recommendSongs ul li div:not(:first-child):not(:last-child){
+  flex: 1 1 0;
+}
+.personalized-privatecontent ul li{
+  flex: 0 0 33.3%;
+}
+.personalized-mv ul li{
+  flex: 0 0 25%;
 }
